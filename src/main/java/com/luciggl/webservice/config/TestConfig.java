@@ -1,4 +1,4 @@
-package com.luciggl.webservice.config;
+/* package com.luciggl.webservice.config;
 
 import com.luciggl.webservice.entities.User;
 import com.luciggl.webservice.repositories.UserRepository;
@@ -25,3 +25,4 @@ public class TestConfig implements CommandLineRunner {
         userRepository.saveAll(Arrays.asList(u1,u2));
     }
 }
+*/
