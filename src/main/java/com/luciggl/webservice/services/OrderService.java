@@ -1,7 +1,7 @@
 package com.luciggl.webservice.services;
 
-import com.luciggl.webservice.entities.User;
-import com.luciggl.webservice.repositories.UserRepository;
+import com.luciggl.webservice.entities.Order;
+import com.luciggl.webservice.repositories.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,17 +9,17 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class UserService {
+public class OrderService {
 
     @Autowired
-    UserRepository repository;
+    OrderRepository repository;
 
-    public List<User> findAll(){
+    public List<Order> findAll(){
         return repository.findAll();
     }
 
-    public User findById(Long id){
-        Optional<User> obj = repository.findById(id);
+    public Order findById(Long id){
+        Optional<Order> obj = repository.findById(id);
         return obj.get();
     }
     

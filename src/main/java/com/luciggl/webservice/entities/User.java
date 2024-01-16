@@ -1,9 +1,12 @@
 package com.luciggl.webservice.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.io.Serial;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -20,6 +23,10 @@ public class User implements Serializable {
     private String email;
     private String phone;
     private String password;
+
+    @OneToMany(mappedBy = "client")
+    @JsonIgnore
+    private List<Order> order = new ArrayList<>();
 
     public User(){
 
@@ -69,15 +76,19 @@ public class User implements Serializable {
         this.password = password;
     }
 
+    public List<Order> getOrder() {
+        return order;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof User user)) return false;
-        return getID() == user.getID();
+        return getID() == user.getID() && Objects.equals(getEmail(), user.getEmail()) && Objects.equals(getPhone(), user.getPhone());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getID());
+        return Objects.hash(getID(), getEmail(), getPhone());
     }
 }
