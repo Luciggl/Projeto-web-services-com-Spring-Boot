@@ -1,9 +1,7 @@
 package com.luciggl.webservice.services;
 
 import com.luciggl.webservice.entities.Category;
-import com.luciggl.webservice.entities.User;
 import com.luciggl.webservice.repositories.CategoryRepository;
-import com.luciggl.webservice.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

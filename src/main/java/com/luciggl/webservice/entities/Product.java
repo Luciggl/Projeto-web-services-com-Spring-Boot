@@ -2,10 +2,8 @@ package com.luciggl.webservice.entities;
 
 
 import jakarta.persistence.*;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
@@ -24,13 +22,16 @@ public class Product implements Serializable {
     private double price;
     private String imgUrl;
 
-    @Transient
+    @ManyToMany
+    @JoinTable(name = "tb_product_category", joinColumns = @JoinColumn(name = "product_id"), inverseJoinColumns = @JoinColumn(name = "category_id"))
     private Set<Category> categories = new HashSet<>();
 
 
     public Product() {
     }
+
     public Product(String name, String description, double price, String imgUrl) {
+        super();
         this.id = id;
         this.name = name;
         this.description = description;
